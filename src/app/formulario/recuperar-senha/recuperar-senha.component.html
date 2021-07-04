@@ -1,1 +1,25 @@
-<p>recuperar-senha works!</p>
+<section class="section-container">
+    <mat-card class="example-card">
+        <mat-card-title>
+            <span class="logo-span">
+                <h1>RECUPERAR SENHA</h1>
+            </span>
+        </mat-card-title>
+        <mat-card-content>         
+            <form class="exemple-form">    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nova Senha:</mat-label>
+                    <input matInput type="password" name="senha1">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Confirmar Senha:</mat-label>
+                    <input matInput type="password" name="senha2">
+                </mat-form-field>
+            </form>          
+        </mat-card-content>          
+        <mat-card-actions  class="container-buttons">
+            <button (click)="backToLogin()" class="button-cancel" mat-button>Cancelar</button>
+            <button (click)="backToLogin()" class="button-save" mat-button>Salvar</button>
+        </mat-card-actions>
+      </mat-card>      
+</section>

@@ -1,0 +1,44 @@
+:host{
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .example-card {
+      max-width: 400px;
+    }
+  
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+  
+    .example-full-width{
+        width: 100%;
+    }
+  
+    .logo-span{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+   }
+  
+
+    .container-buttons{
+      display: flex;
+      justify-content: space-around;
+
+      .button-cancel{
+        color: #fff;
+        background-color: #C82333;
+      }
+      .button-save{
+        color: #fff;
+        background-color: #218838;
+      }
+    }
+  
+    .section-container{
+     margin: 120px; 
+    }

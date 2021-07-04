@@ -1,6 +1,10 @@
-<section>
+<section class="section-container">
     <mat-card class="example-card">
-        <mat-card-title>MyCash</mat-card-title>
+        <mat-card-title>
+            <span class="logo-span">
+                <img src="../../assets/img/logo.png">
+            </span>
+        </mat-card-title>
         <mat-card-content>         
             <form class="exemple-form">    
                 <mat-form-field class="example-full-width">
@@ -12,14 +16,13 @@
                     <input matInput type="password">
                 </mat-form-field>
             </form>
-            <div>
+            <div class="container-button-enter">
                 <button mat-raised-button color="accent">Entrar</button>
             </div>
-        </mat-card-content>
-          
-        <mat-card-actions>
-            <button mat-button>Cadastre-se</button>
-            <button mat-button>Recuperar Senha</button>
+        </mat-card-content>          
+        <mat-card-actions  class="container-buttons">
+            <button mat-button (click)="registerUser()">Cadastre-se</button>
+            <button mat-button (click)="recuperarSenha()">Recuperar Senha</button>
         </mat-card-actions>
       </mat-card>      
 </section>
