@@ -15,7 +15,7 @@ import { CadastrarUsuarioComponent } from './formulario/cadastrar-usuario/cadast
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatButtonModule } from '@angular/material/button'; 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +32,12 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

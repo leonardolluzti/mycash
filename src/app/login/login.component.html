@@ -6,18 +6,18 @@
             </span>
         </mat-card-title>
         <mat-card-content>         
-            <form class="exemple-form">    
+            <form class="exemple-form" [formGroup]="loginForm">    
                 <mat-form-field class="example-full-width">
                     <mat-label>E-mail:</mat-label>
-                    <input matInput type="email">
+                    <input matInput type="email" formControlName="username">
                 </mat-form-field>
                 <mat-form-field class="example-full-width">
                     <mat-label>Senha:</mat-label>
-                    <input matInput type="password">
+                    <input matInput type="password" formControlName="password">
                 </mat-form-field>
             </form>
             <div class="container-button-enter">
-                <button mat-raised-button color="accent">Entrar</button>
+                <button mat-raised-button color="accent" (click)="login()">Entrar</button>
             </div>
         </mat-card-content>          
         <mat-card-actions  class="container-buttons">
