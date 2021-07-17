@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './sharedComponents/not-found/not-found.component';
 import { AuthGuard } from './service/auth.guard';
 import { CadastrosComponent } from './formulario/cadastros/cadastros.component';
 import { CadastrarUsuarioComponent } from './formulario/cadastrar-usuario/cadastrar-usuario.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'cadastrar-usuario', component: CadastrarUsuarioComponent},
   {path: 'recuperar-senha', component: RecuperarSenhaComponent},
   {path: 'cadastros', component: CadastrosComponent, canActivate: [AuthGuard]},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

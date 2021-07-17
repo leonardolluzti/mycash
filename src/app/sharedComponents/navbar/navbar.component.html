@@ -1,19 +1,22 @@
 <nav class="navbar">
     <!-- menu responsivo para mobile-->
-    <span class="navbar-toogle" id="mobile">
+    <span class="navbar-toogle" id="botao-menu-mobile">
         <mat-icon>menu</mat-icon>
     </span>
     <!-- menu responsivo para navegadores-->
-    <span class="logo" >
+    <span class="logo">
         <img src="../../../assets/img/logo.png">
     </span>
     <!-- lista de caminhos que estão no menu -->
-    <ul id="desktop">
+    <ul id="menu-list" class="main-nav">
         <li>
-            <a routerLink="/relatorio-despesa">Relatório de Despesas</a>
+            <a class="nav-links" routerLink="/relatorio-despesa">Relatório de Despesas</a>
         </li>
         <li>
-            <a routerLink="/relatorio-receita">Relatório de Receitas</a>
+            <a class="nav-links" routerLink="/relatorio-receita">Relatório de Receitas</a>
+        </li>
+        <li>
+            <a class="nav-links logout" ><span>Sair</span><mat-icon>exit_to_app</mat-icon></a>
         </li>
     </ul>
 </nav>
