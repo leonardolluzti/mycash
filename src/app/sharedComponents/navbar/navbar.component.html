@@ -10,13 +10,16 @@
     <!-- lista de caminhos que estão no menu -->
     <ul id="menu-list" class="main-nav">
         <li>
+            <a class="nav-links" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li>
             <a class="nav-links" routerLink="/relatorio-despesa">Relatório de Despesas</a>
         </li>
         <li>
             <a class="nav-links" routerLink="/relatorio-receita">Relatório de Receitas</a>
         </li>
         <li>
-            <a class="nav-links logout" ><span>Sair</span><mat-icon>exit_to_app</mat-icon></a>
+            <a class="nav-links logout" (click)="logout()" ><span>Sair</span><mat-icon>exit_to_app</mat-icon></a>
         </li>
     </ul>
 </nav>

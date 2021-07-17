@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.putEvents();
@@ -20,7 +21,10 @@ export class NavbarComponent implements OnInit {
     botaoMenuMobile.addEventListener('click', function(){
       menuList.classList.toggle('active');
     });
-    //mobile.classList.toggle('active');
+    
   }
-
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }
