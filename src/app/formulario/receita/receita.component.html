@@ -1,0 +1,25 @@
+<!-- Section Navbar-->
+<app-navbar></app-navbar>
+<!-- descrição título-->
+<section>
+    <div class="container_title">
+        <h1>FORMULÁRIO DE RECEITAS</h1>
+    </div>
+</section>
+<!-- Section formulário-->
+<section>
+    <div>
+        <h4>Basic mat-select</h4>
+        <mat-form-field>
+            <mat-label>Favorite food</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food od foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-checkbox class="example-margin">Check me!</mat-checkbox>
+    </div>
+</section>

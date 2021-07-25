@@ -8,16 +8,20 @@ import { NavbarComponent } from './sharedComponents/navbar/navbar.component';
 import { RelatorioReceitaComponent } from './receita/relatorio-receita/relatorio-receita.component';
 import { RelatorioDespesaComponent } from './despesa/relatorio-despesa/relatorio-despesa.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
-import { CadastrosComponent } from './formulario/cadastros/cadastros.component';
 import { LoginComponent } from './login/login.component';
 import { RecuperarSenhaComponent } from './formulario/recuperar-senha/recuperar-senha.component';
 import { CadastrarUsuarioComponent } from './formulario/cadastrar-usuario/cadastrar-usuario.component';
+import { DespesaComponent } from './formulario/despesa/despesa.component';
+import { ReceitaComponent } from './formulario/receita/receita.component';
+// Materiais de Design
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatButtonModule } from '@angular/material/button'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './sharedComponents/not-found/not-found.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,11 +29,12 @@ import { MatIconModule } from '@angular/material/icon';
     RelatorioReceitaComponent,
     RelatorioDespesaComponent,
     DashboardComponent,
-    CadastrosComponent,
     LoginComponent,
     RecuperarSenhaComponent,
     CadastrarUsuarioComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DespesaComponent,
+    ReceitaComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
+    MatCheckboxModule,
     
   ],
   providers: [],

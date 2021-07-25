@@ -26,6 +26,7 @@
         padding: 0;
         width: 100%;
         table-layout: fixed;
+        
     }
 
     table tr{
@@ -87,4 +88,7 @@
 .container_title{
     display: flex;
     justify-content: center;
+}
+.container_actions{
+    padding: 20px;    
 }

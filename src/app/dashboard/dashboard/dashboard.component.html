@@ -1,62 +1,75 @@
 <app-navbar></app-navbar>
 <section>
     <div class="container-buttons">
-        <button mat-flat-button class="button-receita">Inserir Receita</button>
-        <button mat-flat-button class="button-despesa">Inserir Despesa</button>
+        <button mat-flat-button class="button-receita" routerLink="/receitas-form">Inserir Receita</button>
+        <button mat-flat-button class="button-despesa" routerLink="/despesas-form"> Inserir Despesa</button>
     </div>
 </section>
 <!-- Section Com últimas Despesas-->
+<section>
     <div class="container_despesas">
-        <div class="container_title"><h1>ÚLTIMAS DESPESAS</h1></div>
+        <div class="container_title">
+            <h1>ÚLTIMAS DESPESAS</h1>
+        </div>
         <table>
             <thead>
                 <tr>
                     <th>DATA</th>
                     <th>VALOR</th>
                     <th>TIPO</th>
-                    <th>S/N FIXO</th>
                     <th>DESCRIÇÃO</th>
+                    <th>S/N FIXO</th>
                     <th>MENU</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>02/02/2021</td>
-                    <td>R$ 2.500</td>
-                    <td>ALUGUEL</td>
-                    <td>FIXO</td>
-                    <td>CARISSIMO</td>
-                    <td>MENU</td>
+                <tr *ngFor="let despesa of listDespesas">
+                    <td>{{despesa.data}}</td>
+                    <td>{{despesa.valor}}</td>
+                    <td>{{despesa.tipo}}</td>
+                    <td>{{despesa.descricao}}</td>
+                    <td>{{despesa.fixo}}</td>
+                    <td>
+                        <div class="container_actions">
+                            <mat-icon>delete</mat-icon>
+                            <mat-icon>edit</mat-icon>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
-<section>
-
 </section>
 <!-- Section Com últimas Receitas-->
 <section>
     <div class="container_receitas">
-        <div class="container_title"><h1>ÚLTIMAS RECEITAS</h1></div>
+        <div class="container_title">
+            <h1>ÚLTIMAS RECEITAS</h1>
+        </div>
         <table>
             <thead>
                 <tr>
                     <th>DATA</th>
                     <th>VALOR</th>
                     <th>TIPO</th>
-                    <th>S/N FIXO</th>
                     <th>DESCRIÇÃO</th>
+                    <th>S/N FIXO</th>                    
                     <th>MENU</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>02/02/2021</td>
-                    <td>R$ 2.500</td>
-                    <td>ALUGUEL</td>
-                    <td>FIXO</td>
-                    <td>CARISSIMO</td>
-                    <td>MENU</td>
+                <tr *ngFor="let receita of listReceitas">
+                    <td>{{receita.data}}</td>
+                    <td>{{receita.valor}}</td>
+                    <td>{{receita.tipo}}</td>
+                    <td>{{receita.descricao}}</td>
+                    <td>{{receita.fixo}}</td>                    
+                    <td>
+                        <div class="container_actions">
+                            <mat-icon>delete</mat-icon>
+                            <mat-icon>edit</mat-icon>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
