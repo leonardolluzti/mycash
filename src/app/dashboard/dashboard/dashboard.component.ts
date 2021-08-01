@@ -54,15 +54,15 @@ populateReceitas(){
   this.auxObject.data=[];
 }
 
-edit(receita: Receita){
+editReceita(receita: Receita){
   console.log(receita);
   this.receitaService.getReceitaFromScreen(receita);
   this.router.navigate(['/receitas-form']);
 }
-edit(despesa: Despesa){
+editDespesa(despesa: Despesa){
   console.log(despesa);
   this.despesaService.getDespesaFromScreen(despesa);
-  this.router.navigate(['/receitas-form']);
+  this.router.navigate(['/despesas-form']);
 }
 
 delete(){
