@@ -1,5 +1,55 @@
 .container_title{
     display: flex;
     margin-top: 20px;
-    justify-content: center;
+    justify-content: center;    
+}
+.container_first_row{
+    display: grid;
+    grid-template-columns: 47% 14% auto;
+    margin: 25px;
+    grid-gap: 3.5em;
+   
+    mat-form-field{
+        width: 100%;
+    }
+    .container_checkbox{
+        display: flex;
+        align-items: center;        
+    }
+    .container_date{
+        display: flex;
+        align-items: center;    
+
+        label{
+            margin-right: 10px;
+        }
+        input{
+            border-radius: 6px;
+            border: 1px solid #000;
+        }
+    
+    }
+}
+
+.container_second_row{
+    display: grid;
+    grid-gap: 3.5em;
+    margin: 25px;
+    grid-template-columns: auto auto;
+
+    mat-form-field{
+        width: 100%;
+    }
+}
+
+
+.container_button_save{
+    float: right;
+    margin-right: 20px;
+
+    button{
+        background-color: #007BFF;
+        color: #fff;        
+    }
+    
 }

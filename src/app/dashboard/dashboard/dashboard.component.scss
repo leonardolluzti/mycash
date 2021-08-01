@@ -4,16 +4,16 @@
 
     button{
         margin: 10px;
+        color: #fff;
+    }
+    .button-receita{
+        background-color: #007BFF;        
+    }
+    .button-despesa{
+        background-color: #C82333;
     }
 }
-.button-receita{
-    background-color: #0800ff;
-    color: white;
-}
-.button-despesa{
-    background-color: #822007;
-    color: white;
-}
+
 .container_despesas{
     height: 50vh;
     width: 100%;
@@ -46,9 +46,9 @@
         text-transform: uppercase;
     }
     thead tr{
-        background: red;
-        color: #fff;
-    }
+        background: #C82333;
+        color: #fff;        
+    }    
 }
 .container_receitas{
     height: 50vh;
@@ -61,7 +61,7 @@
         margin: 0;
         padding: 0;
         width: 100%;
-        table-layout: fixed;
+        table-layout: fixed;        
     }
 
     table tr{
@@ -75,13 +75,13 @@
     table th{
         font-size: .85em;
         letter-spacing: .1em;
-        text-transform: uppercase;
+        text-transform: uppercase;        
     }
     table td{
         text-transform: uppercase;
     }
     thead tr{
-        background: blue;
+        background: #007BFF;
         color: #fff;
     }
 }
@@ -90,5 +90,10 @@
     justify-content: center;
 }
 .container_actions{
-    padding: 20px;    
+    display: flex;
+    justify-content: space-evenly;
+
+    mat-icon{
+        cursor: pointer;
+    }
 }

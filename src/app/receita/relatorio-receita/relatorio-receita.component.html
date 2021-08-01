@@ -1,2 +1,45 @@
 <app-navbar></app-navbar>
-<p>relatorio-receita works!</p>
+<!-- Section Com últimas Receitas-->
+<section>
+    <div class="container_receita">
+        <h1>RECEITAS</h1>
+    </div>
+</section>
+<section>
+    <button (click)="captureScreen()">GERAR PDF</button>
+    <div class="container_date">
+        <label for="birthday">Data:</label>
+        <input type="date" id="birthday" name="birthday">
+    </div>
+</section>
+<section id="contentToConvert">
+    <div class="container_receitas">
+        <table>
+            <thead>
+                <tr>
+                    <th>DATA</th>
+                    <th>VALOR</th>
+                    <th>TIPO</th>
+                    <th>DESCRIÇÃO</th>
+                    <th>S/N FIXO</th>                    
+                    <th>MENU</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let receita of listReceitas">
+                    <td>{{receita.data}}</td>
+                    <td>{{receita.valor}}</td>
+                    <td>{{receita.tipo}}</td>
+                    <td>{{receita.descricao}}</td>
+                    <td>{{receita.fixo}}</td>                    
+                    <td>
+                        <div class="container_actions">
+                            <mat-icon (click)="delete()">delete</mat-icon>
+                            <mat-icon (click)="edit(receita)">edit</mat-icon>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,9 +1,10 @@
 <app-navbar></app-navbar>
+<!-- Section Buttons-->
 <section>
-    <div class="container-buttons">
+    <span class="container-buttons">
         <button mat-flat-button class="button-receita" routerLink="/receitas-form">Inserir Receita</button>
-        <button mat-flat-button class="button-despesa" routerLink="/despesas-form"> Inserir Despesa</button>
-    </div>
+        <button mat-flat-button class="button-despesa" routerLink="/despesas-form">Inserir Despesa</button>
+    </span>
 </section>
 <!-- Section Com últimas Despesas-->
 <section>
@@ -31,8 +32,8 @@
                     <td>{{despesa.fixo}}</td>
                     <td>
                         <div class="container_actions">
-                            <mat-icon>delete</mat-icon>
-                            <mat-icon>edit</mat-icon>
+                            <mat-icon (click)="delete()">delete</mat-icon>
+                            <mat-icon (click)="edit(despesa)">edit</mat-icon>
                         </div>
                     </td>
                 </tr>
@@ -66,8 +67,8 @@
                     <td>{{receita.fixo}}</td>                    
                     <td>
                         <div class="container_actions">
-                            <mat-icon>delete</mat-icon>
-                            <mat-icon>edit</mat-icon>
+                            <mat-icon (click)="delete()">delete</mat-icon>
+                            <mat-icon (click)="edit(receita)">edit</mat-icon>
                         </div>
                     </td>
                 </tr>

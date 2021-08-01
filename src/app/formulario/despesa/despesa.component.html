@@ -1,2 +1,49 @@
+<!-- Section Navbar-->
 <app-navbar></app-navbar>
-<p>despesa works!</p>
+<!-- descrição título-->
+<section>
+    <div class="container_title">
+        <h1>FORMULÁRIO DE DESPESAS</h1>
+    </div>
+</section>
+<!-- Section formulário-->
+<section>
+    <form [formGroup]="formDespesa">
+    <div class="container_first_row">
+        <div>
+            <mat-form-field>
+            <mat-label>Tipo:</mat-label>
+            <mat-select formControlName="tipo">
+                <mat-option *ngFor="let tipo of listTiposDespesas" [value]="tipo.value">
+                    {{tipo.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>   
+        <div class="container_checkbox">
+            <mat-checkbox formControlName="fixo" class="example-margin">Despesa Fixa?</mat-checkbox>
+        </div>
+        <div class="container_date">
+            <label for="birthday">Data: </label>
+            <input type="date" id="birthday" name="birthday" formControlName="data">
+        </div>
+    </div>
+    <div class="container_second_row">    
+        <div>
+            <mat-form-field>
+                <mat-label>Descrição:</mat-label>
+                <textarea matInput rows="1" cols="40" placeholder="text" formControlName="descricao"></textarea>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Valor:</mat-label>
+                <input matInput formControlName="valor">
+            </mat-form-field>
+        </div>
+    </div>  
+</form>
+    <div class="container_button_save">
+        <button (click)="salvar()" mat-flat-button>Salvar</button>
+    </div>
+</section>

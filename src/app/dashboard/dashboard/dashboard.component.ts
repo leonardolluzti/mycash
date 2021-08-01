@@ -1,6 +1,9 @@
+import { Router } from '@angular/router';
+import { ReceitaService } from './../../service/receitas/receita.service';
 import { Despesa } from './../../model/despesa';
 import { Receita } from './../../model/receita';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +16,8 @@ export class DashboardComponent implements OnInit {
   listDespesas: Despesa[];
   listReceitas: Receita[];
   
-  constructor() { }
+  
+  constructor(private router: Router, public receitaService: ReceitaService) { }
 
   ngOnInit(): void {
     this.populateDespesas();
@@ -40,13 +44,41 @@ populateReceitas(){
       id: i,
       data: '2' + i + '/' + '12' + '/' + '20' + i,
       valor: 'R$ ' + i + i + i + i,
-      tipo: 'SALÁRIO',
+      tipo: 'Salário',
       descricao: 'COM ADICIONAL DE R$ ' + i,
       fixo: true
     });
     this.listReceitas = this.auxObject.data;
   }
   this.auxObject.data=[];
+}
+
+edit(receita: Receita){
+  console.log(receita);
+  this.receitaService.getReceitaFromScreen(receita);
+  this.router.navigate(['/receitas-form']);
+}
+
+delete(){
+    Swal.fire({
+    title: 'Você tem mesmo certeza?',
+    text: 'Deseja mesmo deletar?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim',
+    cancelButtonText: 'Não'
+  }).then((result) => {
+    if(result.isConfirmed){
+      Swal.fire(
+        'Deletado!',
+        'Deletado com Sucesso.',
+        'success'
+      );
+    }
+  });
+
 }
 
 }
