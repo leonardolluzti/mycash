@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class DashboardComponent implements OnInit {
 
-  auxObject = {count: 100, data: []};
+  auxObject = {count: 31, data: []};
   listDespesas: Despesa[];
   listReceitas: Receita[];
   
@@ -26,10 +26,10 @@ export class DashboardComponent implements OnInit {
   }
  
  populateDespesas(){
-    for(let i = 0; i < this.auxObject.count; i++){
+    for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
-      data: '2' + i + '/' + '12' + '/' + '20' + i,
+      data: i + '/' + '04' + '/' + '2021',
       valor: 'R$ ' + i + i + i + i,
       tipo: 'ALUGUEL',
       descricao: 'caro, podendo ser maior que ' + i,
@@ -40,10 +40,10 @@ export class DashboardComponent implements OnInit {
     this.auxObject.data=[];
 }
 populateReceitas(){
-    for(let i = 0; i < this.auxObject.count; i++){
+    for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
-      data: '2' + i + '/' + '12' + '/' + '20' + i,
+      data: i + '/' + '04' + '/' + '2021',
       valor: 'R$ ' + i + i + i + i,
       tipo: 'Salário',
       descricao: 'COM ADICIONAL DE R$ ' + i,

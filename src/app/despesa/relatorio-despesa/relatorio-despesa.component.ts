@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class RelatorioDespesaComponent implements OnInit {
 
-  auxObject = {count: 50, data: []};
+  auxObject = {count: 31, data: []};
   listDespesas: Despesa[];
 
   constructor(public despesaService: DespesaService, private router: Router) { }
@@ -22,10 +22,10 @@ export class RelatorioDespesaComponent implements OnInit {
     this.populateDespesas();
   }
   populateDespesas(){
-    for(let i = 0; i < this.auxObject.count; i++){
+    for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
-      data: '2' + '1' + '/' + '12' + '/' + '20' + i,
+      data: i + '/' + '04' + '/' + '2021',
       valor: 'R$ ' + i + i + i + i,
       tipo: 'Aluguel',
       descricao: 'Caro mais de R$ ' + i,
@@ -39,7 +39,7 @@ export class RelatorioDespesaComponent implements OnInit {
 edit(despesa: Despesa){
   console.log(despesa);
   this.despesaService.getDespesaFromScreen(despesa);
-  this.router.navigate(['/despesa-form']);
+  this.router.navigate(['/despesas-form']);
 }
 
 delete(){
@@ -75,7 +75,7 @@ public captureScreen(){
     const pdf = new jspdf('p', 'mm', 'a4'); //A4 size page of PDF
     const position = 0;
     pdf.addImage(contentDataURL, 'PNG', 5, position, imgWidth, imgHeight);
-    pdf.save('MYPdf.pdf'); //Generated PDF
+    pdf.save('Relatório-Despesas.pdf'); //Generated PDF
   });
 }
 

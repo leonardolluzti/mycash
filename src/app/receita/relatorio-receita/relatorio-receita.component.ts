@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./relatorio-receita.component.scss']
 })
 export class RelatorioReceitaComponent implements OnInit {
-  auxObject = {count: 50, data: []};
+  auxObject = {count: 31, data: []};
   listReceitas: Receita[];
 
   constructor(public receitaService: ReceitaService, private router: Router) { }
@@ -21,10 +21,10 @@ export class RelatorioReceitaComponent implements OnInit {
     this.populateReceitas();
   }
   populateReceitas(){
-    for(let i = 0; i < this.auxObject.count; i++){
+    for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
-      data: '2' + '1' + '/' + '12' + '/' + '20' + i,
+      data: i + '/' + '04' + '/' + '2021',
       valor: 'R$ ' + i + i + i + i,
       tipo: 'SALÁRIO',
       descricao: 'COM ADICIONAL DE R$ ' + i,
@@ -74,7 +74,7 @@ public captureScreen(){
     const pdf = new jspdf('p', 'mm', 'a4'); //A4 size page of PDF
     const position = 0;
     pdf.addImage(contentDataURL, 'PNG', 5, position, imgWidth, imgHeight);
-    pdf.save('MYPdf.pdf'); //Generated PDF
+    pdf.save('Relatório-Receitas.pdf'); //Generated PDF
   });
 }
 
