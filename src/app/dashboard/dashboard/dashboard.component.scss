@@ -28,6 +28,10 @@
         table-layout: fixed;
         
     }
+    tbody{
+        overflow-y: scroll;
+        height: 100px;
+        }
 
     table tr{
         border: 1px solid #ddd;

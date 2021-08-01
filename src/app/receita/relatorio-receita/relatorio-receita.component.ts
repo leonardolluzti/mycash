@@ -62,7 +62,7 @@ delete(){
   });
 }
 
-// gerador de pdf
+// Gerador de pdf
 public captureScreen(){
   const data = document.getElementById('contentToConvert');
   html2canvas(data).then(canvas => {

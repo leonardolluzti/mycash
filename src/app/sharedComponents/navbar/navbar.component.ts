@@ -20,9 +20,9 @@ export class NavbarComponent implements OnInit {
     
     botaoMenuMobile.addEventListener('click', function(){
       menuList.classList.toggle('active');
-    });
-    
+    });    
   }
+  
   logout(){
     localStorage.removeItem('token');
     this.router.navigate(['/login']);

@@ -10,7 +10,8 @@ export class DespesaService {
   botaoEdit = this.edit.asObservable();
 
   constructor() { }
-  getReceitaFromScreen(despesa: Despesa){
+  
+  getDespesaFromScreen(despesa: Despesa){
     this.edit.next(despesa);
   }
 }

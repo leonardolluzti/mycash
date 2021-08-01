@@ -1,0 +1,64 @@
+.container_despesa{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.container_date{
+    float: right;
+    margin-right: 15px;
+
+    label{
+        margin-right: 10px;
+    }
+
+    input{
+        border-radius: 6px;
+        border: 1px solid #000;
+    }
+}
+
+.container_despesas{
+    
+    table{
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed;        
+    }
+
+    table tr{
+        border: 1px solid #ddd;
+    }
+
+    table th, table td{
+        padding: .625em;
+        text-align: center;
+    }
+    table th{
+        font-size: .85em;
+        letter-spacing: .1em;
+        text-transform: uppercase;        
+    }
+    table td{
+        text-transform: uppercase;
+    }
+    thead tr{
+        background: #007BFF;
+        color: #fff;
+    }
+}
+.container_title{
+    display: flex;
+    justify-content: center;
+}
+.container_actions{
+    display: flex;
+    justify-content: space-evenly;
+
+    mat-icon{
+        cursor: pointer;
+    }
+}

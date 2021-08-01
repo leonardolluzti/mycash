@@ -10,6 +10,7 @@ export class ReceitaService {
   botaoEdit = this.edit.asObservable();
 
   constructor() { }
+  
   getReceitaFromScreen(receita: Receita){
     this.edit.next(receita);
   }

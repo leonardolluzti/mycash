@@ -1,4 +1,5 @@
 import { Router } from '@angular/router';
+import { DespesaService } from './../../service/despesas/despesa.service';
 import { ReceitaService } from './../../service/receitas/receita.service';
 import { Despesa } from './../../model/despesa';
 import { Receita } from './../../model/receita';
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   listReceitas: Receita[];
   
   
-  constructor(private router: Router, public receitaService: ReceitaService) { }
+  constructor(private router: Router, public receitaService: ReceitaService, public despesaService: DespesaService) { }
 
   ngOnInit(): void {
     this.populateDespesas();
@@ -56,6 +57,11 @@ populateReceitas(){
 edit(receita: Receita){
   console.log(receita);
   this.receitaService.getReceitaFromScreen(receita);
+  this.router.navigate(['/receitas-form']);
+}
+edit(despesa: Despesa){
+  console.log(despesa);
+  this.despesaService.getDespesaFromScreen(despesa);
   this.router.navigate(['/receitas-form']);
 }
 

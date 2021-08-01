@@ -11,14 +11,14 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RecuperarSenhaComponent } from './formulario/recuperar-senha/recuperar-senha.component';
 import { CadastrarUsuarioComponent } from './formulario/cadastrar-usuario/cadastrar-usuario.component';
+import { NotFoundComponent } from './sharedComponents/not-found/not-found.component';
 import { DespesaComponent } from './formulario/despesa/despesa.component';
 import { ReceitaComponent } from './formulario/receita/receita.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Materiais de Design
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatButtonModule } from '@angular/material/button'; 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NotFoundComponent } from './sharedComponents/not-found/not-found.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -42,10 +42,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     BrowserAnimationsModule,
     FormsModule, 
     ReactiveFormsModule,
-    MatIconModule,
     MatCardModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     MatSelectModule,
     MatCheckboxModule,
     
