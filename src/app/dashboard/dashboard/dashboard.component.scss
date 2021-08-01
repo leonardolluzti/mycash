@@ -13,7 +13,6 @@
         background-color: #C82333;
     }
 }
-
 .container_despesas{
     height: 50vh;
     width: 100%;
@@ -28,11 +27,7 @@
         table-layout: fixed;
         
     }
-    tbody{
-        overflow-y: scroll;
-        height: 100px;
-        }
-
+    
     table tr{
         border: 1px solid #ddd;
     }
