@@ -25,9 +25,9 @@ export class RelatorioReceitaComponent implements OnInit {
     this.auxObject.data.push({
       id: i,
       data: i + '/' + '04' + '/' + '2021',
-      valor: 'R$ ' + i + i + i + i,
+      valor: 'R$ ' + i + i + '.00',
       tipo: 'SALÁRIO',
-      descricao: 'COM ADICIONAL DE R$ ' + i,
+      descricao: 'COM ADICIONAL DE R$ ' + i+ '.00',
       fixo: true
     });
     this.listReceitas = this.auxObject.data;

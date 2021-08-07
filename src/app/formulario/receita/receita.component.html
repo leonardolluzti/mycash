@@ -38,7 +38,7 @@
         <div>
             <mat-form-field class="example-full-width">
                 <mat-label>Valor:</mat-label>
-                <input matInput formControlName="valor">
+                <input matInput formControlName="valor" prefix="R$ " mask="0*.00" [showMaskTyped]="true">
             </mat-form-field>
         </div>
     </div>  

@@ -30,9 +30,9 @@ export class DashboardComponent implements OnInit {
     this.auxObject.data.push({
       id: i,
       data: i + '/' + '04' + '/' + '2021',
-      valor: 'R$ ' + i + i + i + i,
-      tipo: 'ALUGUEL',
-      descricao: 'caro, podendo ser maior que ' + i,
+      valor: 'R$ ' + i + i + '.00',
+      tipo: 'Aluguel',
+      descricao: 'caro, podendo ser maior que ' + i+ '.00',
       fixo: true
     });
     this.listDespesas = this.auxObject.data;    
@@ -44,9 +44,9 @@ populateReceitas(){
     this.auxObject.data.push({
       id: i,
       data: i + '/' + '04' + '/' + '2021',
-      valor: 'R$ ' + i + i + i + i,
+      valor: 'R$ ' + i + i + '.00',
       tipo: 'Salário',
-      descricao: 'COM ADICIONAL DE R$ ' + i,
+      descricao: 'COM ADICIONAL DE R$ ' + i+ '.00',
       fixo: true
     });
     this.listReceitas = this.auxObject.data;

@@ -26,9 +26,9 @@ export class RelatorioDespesaComponent implements OnInit {
     this.auxObject.data.push({
       id: i,
       data: i + '/' + '04' + '/' + '2021',
-      valor: 'R$ ' + i + i + i + i,
+      valor: 'R$ ' + i + i + '.00',
       tipo: 'Aluguel',
-      descricao: 'Caro mais de R$ ' + i,
+      descricao: 'Caro mais de R$ ' + i+ '.00',
       fixo: true
     });
     this.listDespesas = this.auxObject.data;

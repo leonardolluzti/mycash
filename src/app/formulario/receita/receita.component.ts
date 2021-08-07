@@ -12,16 +12,16 @@ import Swal from 'sweetalert2';
 })
 export class ReceitaComponent implements OnInit {
   listTiposReceita: Tipo[]=[
-    {value: '0', viewValue: 'Saúde'},
-    {value: '1', viewValue: 'Transporte'},
-    {value: '2', viewValue: 'Educação'},
-    {value: '3', viewValue: 'Lazer'},
-    {value: '4', viewValue: 'Trabalho'},
-    {value: '5', viewValue: 'Alimentos'},
-    {value: '6', viewValue: 'Domicílio'},
-    {value: '7', viewValue: 'Empréstimo'},
-    {value: '8', viewValue: 'Salário'},
-    {value: '9', viewValue: 'Outros'},
+    {value: 'Alimentos', viewValue: 'Alimentos'},
+    {value: 'Domicílio', viewValue: 'Domicílio'},
+    {value: 'Educação', viewValue: 'Educação'},
+    {value: 'Empréstimo', viewValue: 'Empréstimo'},
+    {value: 'Lazer', viewValue: 'Lazer'},
+    {value: 'Salário', viewValue: 'Salário'},
+    {value: 'Saúde', viewValue: 'Saúde'},
+    {value: 'Trabalho', viewValue: 'Trabalho'},
+    {value: 'Transporte', viewValue: 'Transporte'},
+    {value: 'Outros', viewValue: 'Outros'},
   ];
 startDate = new Date(1990,0,1);
 formReceita = new FormGroup({
@@ -29,7 +29,7 @@ formReceita = new FormGroup({
   valor: new FormControl('',[Validators.required]),
   tipo: new FormControl('',[Validators.required]),
   descricao: new FormControl('',[Validators.required]),
-  fixo: new FormControl('',[Validators.required]),
+  fixo: new FormControl('',[]),
 });
   constructor( private router: Router, public receitaService: ReceitaService) { }
 

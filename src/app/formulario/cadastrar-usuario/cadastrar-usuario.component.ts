@@ -11,7 +11,7 @@ export class CadastrarUsuarioComponent implements OnInit, OnDestroy {
   constructor( private router: Router) { }
 
   ngOnInit(): void {
-    document.querySelector('html').style.background = '#3D414C';
+    document.querySelector('html').style.background = '#3D414C';  
   }
 
   ngOnDestroy() {
