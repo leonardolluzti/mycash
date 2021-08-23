@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "mycash"
+  "defaultProject": "mycash",
+  "cli": {
+    "analytics": false
+  }
 }
