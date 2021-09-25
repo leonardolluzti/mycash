@@ -12,15 +12,15 @@ import Swal from 'sweetalert2';
 })
 export class DespesaComponent implements OnInit { 
   listTiposDespesas: Tipo[]=[
-    {value: 'Alimentos', viewValue: 'Alimentos'},
-    {value: 'Domicílio', viewValue: 'Domicílio'},
-    {value: 'Educação', viewValue: 'Educação'},
-    {value: 'Empréstimo', viewValue: 'Empréstimo'},
-    {value: 'Lazer', viewValue: 'Lazer'},
-    {value: 'Saúde', viewValue: 'Saúde'},
-    {value: 'Trabalho', viewValue: 'Trabalho'},
-    {value: 'Transporte', viewValue: 'Transporte'},
-    {value: 'Outros', viewValue: 'Outros'},
+    {value: '1', viewValue: 'Alimentos'},
+    {value: '2', viewValue: 'Domicílio'},
+    {value: '3', viewValue: 'Educação'},
+    {value: '4', viewValue: 'Empréstimo'},
+    {value: '5', viewValue: 'Lazer'},
+    {value: '7', viewValue: 'Saúde'},
+    {value: '8', viewValue: 'Trabalho'},
+    {value: '9', viewValue: 'Transporte'},
+    {value: '10', viewValue: 'Outros'},
   ];
 startDate = new Date(1990,0,1);
 formDespesa = new FormGroup({
