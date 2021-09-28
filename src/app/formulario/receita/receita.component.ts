@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Receita } from 'src/app/model/receita';
 
 @Component({
   selector: 'app-receita',
@@ -12,16 +13,16 @@ import Swal from 'sweetalert2';
 })
 export class ReceitaComponent implements OnInit {
   listTiposReceita: Tipo[]=[
-    {value: '1', viewValue: 'Alimentos'},
-    {value: '2', viewValue: 'Domicílio'},
-    {value: '3', viewValue: 'Educação'},
-    {value: '4', viewValue: 'Empréstimo'},
-    {value: '5', viewValue: 'Lazer'},
-    {value: '6', viewValue: 'Salário'},
-    {value: '7', viewValue: 'Saúde'},
-    {value: '8', viewValue: 'Trabalho'},
-    {value: '9', viewValue: 'Transporte'},
-    {value: '10', viewValue: 'Outros'},
+    {value: 1, viewValue: 'Alimentos'},
+    {value: 2, viewValue: 'Domicílio'},
+    {value: 3, viewValue: 'Educação'},
+    {value: 4, viewValue: 'Empréstimo'},
+    {value: 5, viewValue: 'Lazer'},
+    {value: 6, viewValue: 'Salário'},
+    {value: 7, viewValue: 'Saúde'},
+    {value: 8, viewValue: 'Trabalho'},
+    {value: 9, viewValue: 'Transporte'},
+    {value: 10, viewValue: 'Outros'},
   ];
 startDate = new Date(1990,0,1);
 formReceita = new FormGroup({
@@ -31,7 +32,10 @@ formReceita = new FormGroup({
   descricao: new FormControl('',[Validators.required]),
   fixo: new FormControl('',[]),
 });
-  constructor( private router: Router, public receitaService: ReceitaService) { }
+
+receitasObject: Receita;
+
+constructor(private router: Router, public receitaService: ReceitaService) { }
 
   ngOnInit(): void {
     this.receitaService.botaoEdit.subscribe(edit => {
@@ -45,7 +49,24 @@ formReceita = new FormGroup({
       }
     });
   }
-  salvar(){
+salvar(){
+  if (this.formReceita.valid && this.receitasObject === null){
+    this.receitaService.createReceitas(this.formReceita.value).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
+  } else if (this.formReceita.valid){
+    const id = this.receitasObject.id;
+    this.receitasObject = this.formReceita.value;
+    this.receitasObject.id = id;
+    this.receitaService.updateReceitas(this.receitasObject).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
+  }
+/*
     if(this.formReceita.valid){
       Swal.fire({
         icon: 'success',
@@ -54,12 +75,14 @@ formReceita = new FormGroup({
       });    
       this.router.navigate(['/dashboard']);
     }
-    else{
-      Swal.fire({
-        icon: 'warning',
-        title: 'Opaa!',
-        text: 'Preencha corretamente todos os campos!'
-      }); 
-    }
+    
+    */
+  }
+  update(){
+    this.receitaService.updateReceitas(this.formReceita.value).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 }

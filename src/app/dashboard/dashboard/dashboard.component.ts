@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   listReceitas: Receita[];
   
   
-  constructor(private router: Router, public receitaService: ReceitaService, public despesaService: DespesaService) { }
+  constructor(private router: Router, private receitaService: ReceitaService, private despesaService: DespesaService) { }
 
   ngOnInit(): void {
     this.populateDespesas();
@@ -26,6 +26,13 @@ export class DashboardComponent implements OnInit {
   }
  
  populateDespesas(){
+  this.despesaService.getAllDespesas().subscribe(
+    data => {
+      console.log(data);
+      this.listDespesas = data;
+    }
+  );
+ /*//Preenchimento sem banco de dados
     for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
@@ -38,8 +45,16 @@ export class DashboardComponent implements OnInit {
     this.listDespesas = this.auxObject.data;    
  }
     this.auxObject.data=[];
+*/
 }
 populateReceitas(){
+  this.receitaService.getAllReceitas().subscribe(
+    data => {
+      console.log(data);
+      this.listReceitas = data;
+    }
+  );
+  /*//Preenchimento sem banco de dados
     for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
@@ -52,21 +67,20 @@ populateReceitas(){
     this.listReceitas = this.auxObject.data;
   }
   this.auxObject.data=[];
+  */
 }
 
-editReceita(receita: Receita){
-  console.log(receita);
+editReceita(receita: Receita){  
   this.receitaService.getReceitaFromScreen(receita);
   this.router.navigate(['/receitas-form']);
 }
 editDespesa(despesa: Despesa){
-  console.log(despesa);
   this.despesaService.getDespesaFromScreen(despesa);
   this.router.navigate(['/despesas-form']);
 }
 
-delete(){
-    Swal.fire({
+deleteReceita(receita: Receita){
+  Swal.fire({
     title: 'Você tem mesmo certeza?',
     text: 'Deseja mesmo deletar?',
     icon: 'warning',
@@ -76,15 +90,45 @@ delete(){
     confirmButtonText: 'Sim',
     cancelButtonText: 'Não'
   }).then((result) => {
-    if(result.isConfirmed){
-      Swal.fire(
-        'Deletado!',
-        'Deletado com Sucesso.',
-        'success'
+    if (result.isConfirmed) {
+      this.receitaService.deleteReceitas(receita.id).subscribe(
+        data => {
+          console.log(data);
+          Swal.fire(
+            'Deletado!',
+            'Deletado com Sucesso.',
+            'success'
+          );
+        }
       );
     }
   });
+}
 
+deleteDespesa(despesa: Despesa){
+  Swal.fire({
+    title: 'Você tem mesmo certeza?',
+    text: 'Deseja mesmo deletar?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sim',
+    cancelButtonText: 'Não'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.despesaService.deleteDespesas(despesa.id).subscribe(
+        data => {
+          console.log(data);
+          Swal.fire(
+            'Deletado!',
+            'Deletado com Sucesso.',
+            'success'
+          );
+        }
+      );
+    }
+  });
 }
 
 }

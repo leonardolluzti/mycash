@@ -1,4 +1,4 @@
 export interface Tipo{
-    value: string;
+    value: number;
     viewValue: string;
   }

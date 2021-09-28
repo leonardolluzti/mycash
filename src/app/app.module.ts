@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxMaskModule } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { NgxMaskModule } from 'ngx-mask';
     MatSelectModule,
     MatCheckboxModule,
     NgxMaskModule.forRoot(),
+    HttpClientModule,
     
   ],
   providers: [],

@@ -32,7 +32,7 @@
                     <td>{{despesa.fixo}}</td>
                     <td>
                         <div class="container_actions">
-                            <mat-icon (click)="delete()">delete</mat-icon>
+                            <mat-icon (click)="deleteDespesa(despesa)">delete</mat-icon>
                             <mat-icon (click)="editDespesa(despesa)">edit</mat-icon>
                         </div>
                     </td>
@@ -67,7 +67,7 @@
                     <td>{{receita.fixo}}</td>                    
                     <td>
                         <div class="container_actions">
-                            <mat-icon (click)="delete()">delete</mat-icon>
+                            <mat-icon (click)="deleteReceita(receita)">delete</mat-icon>
                             <mat-icon (click)="editReceita(receita)">edit</mat-icon>
                         </div>
                     </td>

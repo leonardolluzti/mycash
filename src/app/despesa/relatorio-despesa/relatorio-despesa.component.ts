@@ -22,6 +22,13 @@ export class RelatorioDespesaComponent implements OnInit {
     this.populateDespesas();
   }
   populateDespesas(){
+    this.despesaService.getAllDespesas().subscribe(
+      data => {
+        console.log(data);
+        this.listDespesas = data;
+      }
+    );
+    /*//Preenchimento sem banco de dados
     for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
@@ -34,6 +41,7 @@ export class RelatorioDespesaComponent implements OnInit {
     this.listDespesas = this.auxObject.data;
   }
   this.auxObject.data=[];
+  */
 }
 
 edit(despesa: Despesa){
@@ -42,7 +50,7 @@ edit(despesa: Despesa){
   this.router.navigate(['/despesas-form']);
 }
 
-delete(){
+delete(despesa: Despesa){
   Swal.fire({
     title: 'Você tem mesmo certeza?',
     text: 'Deseja mesmo deletar?',
@@ -53,11 +61,16 @@ delete(){
     confirmButtonText: 'Sim',
     cancelButtonText: 'Não'
   }).then((result) => {
-    if(result.isConfirmed){
-      Swal.fire(
-        'Deletado!',
-        'Deletado com Sucesso.',
-        'success'
+    if (result.isConfirmed) {
+      this.despesaService.deleteDespesas(despesa.id).subscribe(
+        data => {
+          console.log(data);
+          Swal.fire(
+            'Deletado!',
+            'Deletado com Sucesso.',
+            'success'
+          );
+        }
       );
     }
   });

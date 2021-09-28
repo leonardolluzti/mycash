@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
-import { ReceitaService } from './../../service/receitas/receita.service';
 import { Component, OnInit } from '@angular/core';
 import { Receita } from './../../model/receita';
+import { ReceitaService } from './../../service/receitas/receita.service';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 import Swal from 'sweetalert2';
@@ -21,6 +21,13 @@ export class RelatorioReceitaComponent implements OnInit {
     this.populateReceitas();
   }
   populateReceitas(){
+    this.receitaService.getAllReceitas().subscribe(
+      data => {
+        console.log(data);
+        this.listReceitas = data;
+      }
+    );
+    /*//Preenchimento sem banco de dados
     for(let i = 1; i < this.auxObject.count; i++){
     this.auxObject.data.push({
       id: i,
@@ -33,6 +40,7 @@ export class RelatorioReceitaComponent implements OnInit {
     this.listReceitas = this.auxObject.data;
   }
   this.auxObject.data=[];
+  */
 }
 
 edit(receita: Receita){
@@ -41,7 +49,7 @@ edit(receita: Receita){
   this.router.navigate(['/receitas-form']);
 }
 
-delete(){
+delete(receita: Receita){
   Swal.fire({
     title: 'Você tem mesmo certeza?',
     text: 'Deseja mesmo deletar?',
@@ -52,11 +60,16 @@ delete(){
     confirmButtonText: 'Sim',
     cancelButtonText: 'Não'
   }).then((result) => {
-    if(result.isConfirmed){
-      Swal.fire(
-        'Deletado!',
-        'Deletado com Sucesso.',
-        'success'
+    if (result.isConfirmed) {
+      this.receitaService.deleteReceitas(receita.id).subscribe(
+        data => {
+          console.log(data);
+          Swal.fire(
+            'Deletado!',
+            'Deletado com Sucesso.',
+            'success'
+          );
+        }
       );
     }
   });

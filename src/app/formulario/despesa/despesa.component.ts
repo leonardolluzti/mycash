@@ -1,3 +1,4 @@
+import { Despesa } from 'src/app/model/despesa';
 import { DespesaService } from './../../service/despesas/despesa.service';
 import { Tipo } from './../../model/util';
 import { Component, OnInit } from '@angular/core';
@@ -12,15 +13,15 @@ import Swal from 'sweetalert2';
 })
 export class DespesaComponent implements OnInit { 
   listTiposDespesas: Tipo[]=[
-    {value: '1', viewValue: 'Alimentos'},
-    {value: '2', viewValue: 'Domicílio'},
-    {value: '3', viewValue: 'Educação'},
-    {value: '4', viewValue: 'Empréstimo'},
-    {value: '5', viewValue: 'Lazer'},
-    {value: '7', viewValue: 'Saúde'},
-    {value: '8', viewValue: 'Trabalho'},
-    {value: '9', viewValue: 'Transporte'},
-    {value: '10', viewValue: 'Outros'},
+    {value: 1, viewValue: 'Alimentos'},
+    {value: 2, viewValue: 'Domicílio'},
+    {value: 3, viewValue: 'Educação'},
+    {value: 4, viewValue: 'Empréstimo'},
+    {value: 5, viewValue: 'Lazer'},
+    {value: 7, viewValue: 'Saúde'},
+    {value: 8, viewValue: 'Trabalho'},
+    {value: 9, viewValue: 'Transporte'},
+    {value: 10, viewValue: 'Outros'},
   ];
 startDate = new Date(1990,0,1);
 formDespesa = new FormGroup({
@@ -30,6 +31,8 @@ formDespesa = new FormGroup({
   descricao: new FormControl('',[Validators.required]),
   fixo: new FormControl('',[]),
 });
+  despesasObject: Despesa;
+
   constructor( private router: Router, public despesaService: DespesaService) { }
 
   ngOnInit(): void {
@@ -45,6 +48,23 @@ formDespesa = new FormGroup({
     });
   }
   salvar(){
+    if (this.formDespesa.valid && this.despesasObject === null){
+      this.despesaService.createDespesas(this.formDespesa.value).subscribe(
+        data => {
+          console.log(data);
+        }
+      );      
+    } else if (this.formDespesa.valid){
+      const id = this.despesasObject.id;
+      this.despesasObject = this.formDespesa.value;
+      this.despesasObject.id = id;
+      this.despesaService.updateDespesas(this.despesasObject).subscribe(
+        data => {
+          console.log(data);
+        }
+      );
+    }
+    /*
     if(this.formDespesa.valid){
       Swal.fire({
         icon: 'success',
@@ -60,5 +80,14 @@ formDespesa = new FormGroup({
         text: 'Preencha corretamente todos os campos!'
       }); 
     }
+    
+*/
+  }
+  update(){
+    this.despesaService.updateDespesas(this.formDespesa.value).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 }
