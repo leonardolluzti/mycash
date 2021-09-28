@@ -62,7 +62,7 @@ export class DespesaService {
   deleteDespesas(id: number){
     const headers = new HttpHeaders({Authorization: 'Basic' + btoa(this.username + ':' + this.password)});
     
-    return this.http.delete<Despesa>('http://localhost:9000/despesa/'+id, {headers, responseType: 'text' as 'text'}).pipe(
+    return this.http.delete<Despesa>('http://localhost:9000/despesa/'+id, {headers, responseType: 'text' as 'json'}).pipe(
       map(
         despesaData =>{          
           return despesaData;                  
