@@ -62,7 +62,7 @@ export class ReceitaService {
   deleteReceitas(id: number){
     const headers = new HttpHeaders({Authorization: 'Basic' + btoa(this.username + ':' + this.password)});
     
-    return this.http.delete<Receita>('http://localhost:9000/receita/'+id, {headers, responseType: 'text' as 'text'}).pipe(
+    return this.http.delete<Receita>('http://localhost:9000/receita/'+id, {headers, responseType: 'text' as 'json'}).pipe(
       map(
         receitaData =>{          
           return receitaData;                  
