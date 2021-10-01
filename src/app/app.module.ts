@@ -15,6 +15,7 @@ import { NotFoundComponent } from './sharedComponents/not-found/not-found.compon
 import { DespesaComponent } from './formulario/despesa/despesa.component';
 import { ReceitaComponent } from './formulario/receita/receita.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Materiais de Design
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input'; 
@@ -22,9 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NgxMaskModule } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [

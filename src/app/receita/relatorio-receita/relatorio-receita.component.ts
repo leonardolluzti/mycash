@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Receita } from './../../model/receita';
+import { Receita } from './../../models/receita';
 import { ReceitaService } from './../../service/receitas/receita.service';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./relatorio-receita.component.scss']
 })
 export class RelatorioReceitaComponent implements OnInit {
-  auxObject = {count: 31, data: []};
+  //auxObject = {count: 31, data: []};
   listReceitas: Receita[];
 
   constructor(public receitaService: ReceitaService, private router: Router) { }

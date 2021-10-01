@@ -1,6 +1,6 @@
-import { Despesa } from 'src/app/model/despesa';
+import { Despesa } from 'src/app/models/despesa';
 import { DespesaService } from './../../service/despesas/despesa.service';
-import { Tipo } from './../../model/util';
+import { Tipo } from './../../models/util';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,15 +13,15 @@ import Swal from 'sweetalert2';
 })
 export class DespesaComponent implements OnInit { 
   listTiposDespesas: Tipo[]=[
-    {value: 1, viewValue: 'Alimentos'},
-    {value: 2, viewValue: 'Domicílio'},
-    {value: 3, viewValue: 'Educação'},
-    {value: 4, viewValue: 'Empréstimo'},
-    {value: 5, viewValue: 'Lazer'},
-    {value: 7, viewValue: 'Saúde'},
-    {value: 8, viewValue: 'Trabalho'},
-    {value: 9, viewValue: 'Transporte'},
-    {value: 10, viewValue: 'Outros'},
+    {value: '1', viewValue: 'Alimentos'},
+    {value: '2', viewValue: 'Domicílio'},
+    {value: '3', viewValue: 'Educação'},
+    {value: '4', viewValue: 'Empréstimo'},
+    {value: '5', viewValue: 'Lazer'},
+    {value: '7', viewValue: 'Saúde'},
+    {value: '8', viewValue: 'Trabalho'},
+    {value: '9', viewValue: 'Transporte'},
+    {value: '10', viewValue: 'Outros'},
   ];
 startDate = new Date(1990,0,1);
 formDespesa = new FormGroup({
@@ -29,7 +29,7 @@ formDespesa = new FormGroup({
   valor: new FormControl('',[Validators.required]),
   tipo: new FormControl('',[Validators.required]),
   descricao: new FormControl('',[Validators.required]),
-  fixo: new FormControl('',[]),
+  fixo: new FormControl('',[Validators.required]),
 });
   despesasObject: Despesa;
 
@@ -54,6 +54,12 @@ formDespesa = new FormGroup({
           console.log(data);
         }
       );      
+      Swal.fire({
+        icon: 'success',
+        title: 'Ebaaa!',
+        text: 'Despesa salva com sucesso!'        
+      });    
+      this.router.navigate(['/dashboard']);
     } else if (this.formDespesa.valid){
       const id = this.despesasObject.id;
       this.despesasObject = this.formDespesa.value;

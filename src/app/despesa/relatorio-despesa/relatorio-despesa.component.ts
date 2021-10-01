@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Despesa } from './../../model/despesa';
+import { Despesa } from 'src/app/models/despesa';
 import { DespesaService } from 'src/app/service/despesas/despesa.service';
 import jspdf from 'jspdf';
 import html2canvas from 'html2canvas';

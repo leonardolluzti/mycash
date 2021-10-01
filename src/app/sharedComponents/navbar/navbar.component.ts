@@ -1,5 +1,5 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,12 +17,13 @@ export class NavbarComponent implements OnInit {
   putEvents(){
     const menuList = document.getElementById('menu-list');
     const botaoMenuMobile = document.getElementById('botao-menu-mobile');
-    
+
+    // tslint:disable-next-line: only-arrow-functions
     botaoMenuMobile.addEventListener('click', function(){
       menuList.classList.toggle('active');
-    });    
+    });
   }
-  
+
   logout(){
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
