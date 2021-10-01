@@ -29,7 +29,7 @@ formDespesa = new FormGroup({
   valor: new FormControl('',[Validators.required]),
   tipo: new FormControl('',[Validators.required]),
   descricao: new FormControl('',[Validators.required]),
-  fixo: new FormControl('',[Validators.required]),
+  fixo: new FormControl('',[]),
 });
   despesasObject: Despesa;
 
@@ -38,6 +38,7 @@ formDespesa = new FormGroup({
   ngOnInit(): void {
     this.despesaService.botaoEdit.subscribe(edit => {
       console.log(edit);
+      this.despesasObject = edit;
       if (edit){
         this.formDespesa.get('data').setValue(edit.data);
         this.formDespesa.get('valor').setValue(edit.valor);
@@ -47,6 +48,7 @@ formDespesa = new FormGroup({
       }
     });
   }
+  
   salvar(){
     if (this.formDespesa.valid && this.despesasObject === null){
       this.despesaService.createDespesas(this.formDespesa.value).subscribe(
@@ -69,6 +71,19 @@ formDespesa = new FormGroup({
           console.log(data);
         }
       );
+      Swal.fire({
+        icon: 'success',
+        title: 'Ebaaa!',
+        text: 'Despesa salva com sucesso!'        
+      });    
+      this.router.navigate(['/dashboard']);
+    }
+    else{
+      Swal.fire({
+        icon: 'warning',
+        title: 'Opaa!',
+        text: 'Preencha corretamente todos os campos!'
+      }); 
     }
     /*
     if(this.formDespesa.valid){

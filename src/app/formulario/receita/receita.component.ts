@@ -30,7 +30,7 @@ export class ReceitaComponent implements OnInit {
     valor: new FormControl('', [Validators.required]),
     tipo: new FormControl('', [Validators.required]),
     descricao: new FormControl('', [Validators.required]),
-    fixo: new FormControl('', [Validators.required]),
+    fixo: new FormControl('', []),
   });
 
   receitasObject: Receita;
@@ -38,7 +38,6 @@ export class ReceitaComponent implements OnInit {
   constructor(private router: Router, public receitaService: ReceitaService) { }
 
   ngOnInit(): void {
-
     this.receitaService.botaoEdit.subscribe( edit => {
       console.log(edit);
       this.receitasObject = edit;
@@ -60,6 +59,12 @@ export class ReceitaComponent implements OnInit {
           console.log(data);
         }
       );
+      Swal.fire({
+        icon: 'success',
+        title: 'Eeeeba...',
+        text: 'Receita salva com sucesso'
+       });
+       this.router.navigate(['/dashboard']);       
     } else if (this.formReceita.valid){
       const id = this.receitasObject.id;
       this.receitasObject = this.formReceita.value;
@@ -69,35 +74,19 @@ export class ReceitaComponent implements OnInit {
           console.log(data);
         }
       );
+      Swal.fire({
+        icon: 'success',
+        title: 'Eeeeba...',
+        text: 'Receita salva com sucesso'
+       });
+       this.router.navigate(['/dashboard']);
+    }else{
+       Swal.fire({
+         icon: 'warning',
+         title: 'Oops...',
+         text: 'Preencha corretamente todos os campos'
+       });
     }
-
-
-
-
-    // if (this.formReceita.valid){
-    //   this.receitaService.createReceitas(this.formReceita.value).subscribe(
-    //     data => (
-    //       console.log(data);
-    //     )
-    //   )
-
-
-    //   // Swal.fire({
-    //   //   icon: 'success',
-    //   //   title: 'Eeeeba...',
-    //   //   text: 'Receita salva com sucesso'
-    //   // });
-    //   // this.router.navigate(['/dashboard']);
-    // }
-    
-    
-    // else{
-    //   Swal.fire({
-    //     icon: 'warning',
-    //     title: 'Oops...',
-    //     text: 'Preencha corretamente todos os campos'
-    //   });
-    // }
   }
 
   update(){
